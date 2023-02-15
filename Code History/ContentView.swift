@@ -31,38 +31,15 @@ struct ContentView: View {
                     .multilineTextAlignment(.leading)
                 Spacer()
                 HStack {
-                    //Button 1
-                    Button(action: {
-                        print("Tapped choice 1")
-                    }, label: {
-                        ChoiceTextView(choiceText: question.possibleAnswers[0])
-                    })
-
-                    //Button 2
-                    Button(action: {
-                        print("Tapped choice 2")
-                    }, label: {
-                        ChoiceTextView(choiceText: question.possibleAnswers[1])
-
-                    })
-                    // Button 3
-                    Button(action: {
-                        print("Tapped choice 3")
-                    }, label: {
-                        ChoiceTextView(choiceText: question.possibleAnswers[2])
-                    })
-
-                    // Button 4
-                    Button(action: {
-                        print("Tapped choice 4")
-
-                    }, label: {
-                        ChoiceTextView(choiceText: question.possibleAnswers[3])
-                    })
-
+                    ForEach(0..<question.possibleAnswers.count, id: \.self) { answerIndex in
+                        Button(action: {
+                            print("Tapped choice 1")
+                        }, label: {
+                            ChoiceTextView(choiceText: question.possibleAnswers[answerIndex])
+                        })
+                    }
                 }
             }
-
         }
         .foregroundColor(.white)
     }
