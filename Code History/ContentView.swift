@@ -15,7 +15,7 @@ struct ContentView: View {
         correctAnswersIndex: 2
     )
 
-    let mainColor = Color(red: 20/255, green: 28/255, blue: 58/255)
+    @State var mainColor = Color(red: 20/255, green: 28/255, blue: 58/255)
 
     var body: some View {
         ZStack {
@@ -33,7 +33,8 @@ struct ContentView: View {
                 HStack {
                     ForEach(0..<question.possibleAnswers.count, id: \.self) { answerIndex in
                         Button(action: {
-                            print("Tapped choice 1")
+                            print("Tapped on option with the text: \(question.possibleAnswers[answerIndex])")
+                            mainColor = answerIndex == question.correctAnswersIndex ? .green : .red
                         }, label: {
                             ChoiceTextView(choiceText: question.possibleAnswers[answerIndex])
                         })
