@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WelcomeView: View {
-
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -23,17 +23,11 @@ struct WelcomeView: View {
                             .padding()
                     }
                     Spacer()
-                    NavigationLink(destination: GameView(), label: {
-                        HStack {
-                            Spacer()
-                            Text("Ok, let's go!")
-                                .font(.body)
-                                .bold()
-                                .padding()
-                            Spacer()
-                        }.background(GameColor.accent)
-                    })
-
+                    NavigationLink(
+                        destination: GameView(),
+                        label: {
+                            BottomTextView(str: "Ok, let's go!")
+                        })
                 }
                 .foregroundColor(.white)
             }
