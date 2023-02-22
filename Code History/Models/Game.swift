@@ -12,7 +12,7 @@ struct Game {
     private(set) var guesses = [Question: Int]()
     private(set) var isOver = false
     private let questions = Question.allQuestions.shuffled()
-
+    
     var guessCount: (correct: Int, incorrect: Int) {
         var count: (correct: Int, incorrect: Int) = (0,0)
         for (question, guessedIndex) in guesses {
